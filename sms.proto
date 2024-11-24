@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+service MessagingService {
+    rpc AddPublicKey (string, PublicKey) returns ()
+    rpc GetPublicKey (string) returns (PublicKey);
+    rpc SendMessage (Message) returns (Response);
+    rpc ReceiveMessages (Empty) returns (stream Message);
+}
+
+message PublicKey {
+    int32 n = 1;
+    int32 e =
+     2;
+}
+message Message {
+  string sender = 1;
+  string content = 2;
+}
+
+message Response {
+  string status = 1;
+}
+
+message Empty {}
