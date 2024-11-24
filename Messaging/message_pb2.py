@@ -24,7 +24,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x17Messaging/message.proto\"!\n\tPublicKey\x12\t\n\x01n\x18\x01 \x01(\x05\x12\t\n\x01\x65\x18\x02 \x01(\x05\"\x1f\n\x11UserIdentificator\x12\n\n\x02id\x18\x01 \x01(\t\"P\n\x13\x41\x64\x64PublicKeyRequest\x12 \n\x04user\x18\x01 \x01(\x0b\x32\x12.UserIdentificator\x12\x17\n\x03key\x18\x02 \x01(\x0b\x32\n.PublicKey\"*\n\x07Message\x12\x0e\n\x06sender\x18\x01 \x01(\t\x12\x0f\n\x07\x63ontent\x18\x02 \x01(\t\"\x1a\n\x08Response\x12\x0e\n\x06status\x18\x01 \x01(\t\"\x07\n\x05\x45mpty2\xbe\x01\n\x10MessagingService\x12/\n\x0c\x41\x64\x64PublicKey\x12\x14.AddPublicKeyRequest\x1a\t.Response\x12.\n\x0cGetPublicKey\x12\x12.UserIdentificator\x1a\n.PublicKey\x12\"\n\x0bSendMessage\x12\x08.Message\x1a\t.Response\x12%\n\x0fReceiveMessages\x12\x06.Empty\x1a\x08.Message0\x01\x62\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x17Messaging/message.proto\"!\n\tPublicKey\x12\t\n\x01n\x18\x01 \x01(\x05\x12\t\n\x01\x65\x18\x02 \x01(\x05\"\x1f\n\x11UserIdentificator\x12\n\n\x02id\x18\x01 \x01(\t\"P\n\x13\x41\x64\x64PublicKeyRequest\x12 \n\x04user\x18\x01 \x01(\x0b\x32\x12.UserIdentificator\x12\x17\n\x03key\x18\x02 \x01(\x0b\x32\n.PublicKey\"<\n\x07Message\x12\x0e\n\x06sender\x18\x01 \x01(\t\x12\x10\n\x08receptor\x18\x02 \x01(\t\x12\x0f\n\x07\x63ontent\x18\x03 \x01(\t\"\x1a\n\x08Response\x12\x0e\n\x06status\x18\x01 \x01(\t\"\x07\n\x05\x45mpty2\xbe\x01\n\x10MessagingService\x12/\n\x0c\x41\x64\x64PublicKey\x12\x14.AddPublicKeyRequest\x1a\t.Response\x12.\n\x0cGetPublicKey\x12\x12.UserIdentificator\x1a\n.PublicKey\x12\"\n\x0bSendMessage\x12\x08.Message\x1a\t.Response\x12%\n\x0fReceiveMessages\x12\x06.Empty\x1a\x08.Message0\x01\x62\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -38,11 +38,11 @@ if not _descriptor._USE_C_DESCRIPTORS:
   _globals['_ADDPUBLICKEYREQUEST']._serialized_start=95
   _globals['_ADDPUBLICKEYREQUEST']._serialized_end=175
   _globals['_MESSAGE']._serialized_start=177
-  _globals['_MESSAGE']._serialized_end=219
-  _globals['_RESPONSE']._serialized_start=221
-  _globals['_RESPONSE']._serialized_end=247
-  _globals['_EMPTY']._serialized_start=249
-  _globals['_EMPTY']._serialized_end=256
-  _globals['_MESSAGINGSERVICE']._serialized_start=259
-  _globals['_MESSAGINGSERVICE']._serialized_end=449
+  _globals['_MESSAGE']._serialized_end=237
+  _globals['_RESPONSE']._serialized_start=239
+  _globals['_RESPONSE']._serialized_end=265
+  _globals['_EMPTY']._serialized_start=267
+  _globals['_EMPTY']._serialized_end=274
+  _globals['_MESSAGINGSERVICE']._serialized_start=277
+  _globals['_MESSAGINGSERVICE']._serialized_end=467
 # @@protoc_insertion_point(module_scope)
