@@ -1,34 +1,28 @@
 syntax = "proto3";
 
 service MessagingService {
-    rpc AddPublicKey (AddPublicKeyRequest) returns (Response);
-    rpc GetPublicKey (UserIdentificator) returns (PublicKey);
-    rpc SendMessage (Message) returns (Response);
-    rpc ReceiveMessages (Empty) returns (stream Message);
+  rpc RegisterPublicKey (PublicKey) returns (Response);
+  rpc RequestPublicKey (ClientRequest) returns (PublicKey);
+  rpc SendMessage (Message) returns (Response);
+  rpc ReceiveMessages (ClientRequest) returns (stream Message);
 }
 
 message PublicKey {
-    int32 n = 1;
-    int32 e = 2;
+  string sender = 1;  // ID del cliente que envía la llave pública
+  int64 e = 2;        // Exponente público
+  int64 n = 3;        // Módulo público
 }
 
-message UserIdentificator {
-    string id = 1;
-}
-
-message AddPublicKeyRequest {
-    UserIdentificator user = 1;
-    PublicKey key = 2;
+message ClientRequest {
+  string sender = 1;  // ID del cliente solicitante
 }
 
 message Message {
-    string sender = 1;
-    string receptor = 2;
-    string content = 3;
+  string sender = 1;    // ID del cliente que envía el mensaje
+  string receiver = 2;  // ID del cliente que debe recibir el mensaje
+  bytes content = 3;    // Contenido cifrado
 }
 
 message Response {
-    string status = 1;
+  string status = 1;
 }
-
-message Empty {}
