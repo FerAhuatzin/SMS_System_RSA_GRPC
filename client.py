@@ -3,16 +3,24 @@ import proto_pb2
 import proto_pb2_grpc
 import threading
 import time
+from math import gcd
+
+def generar_e(phi):
+    """Genera un valor aleatorio para 'e' que sea coprimo con phi."""
+    import random
+    while True:
+        e = random.randint(2, phi - 1)
+        if gcd(e, phi) == 1:
+            return e
 
 # Parámetros de RSA
-p = 61  # Número primo 1
-q = 53  # Número primo 2
-n = p * q  # Módulo
-phi = (p - 1) * (q - 1)  # Totiente de Euler
-e = 17  # Exponente público
-d = pow(e, -1, phi)  # Exponente privado (inverso modular de e)
+p = 131071141316795624029469974639648754638231553642582112110981715601487831867
+q = 144990918857135191759965497312970238121369704427949697970896788653464682973
+n = p * q 
+phi = (p - 1) * (q - 1)
+e = generar_e(phi)
+d = pow(e, -1, phi) 
 
-# Llave pública (e, n) y privada (d, n)
 public_key = (e, n)
 private_key = (d, n)
 
