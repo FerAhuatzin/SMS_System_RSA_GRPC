@@ -9,8 +9,8 @@ service MessagingService {
 
 message PublicKey {
   string sender = 1;  // ID del cliente que envía la llave pública
-  int64 e = 2;        // Exponente público
-  int64 n = 3;        // Módulo público
+  uint64 e = 2;        // Exponente público
+  uint64 n = 3;        // Módulo público
 }
 
 message ClientRequest {

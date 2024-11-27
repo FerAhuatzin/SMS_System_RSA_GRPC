@@ -14,8 +14,8 @@ def generar_e(phi):
             return e
 
 # Parámetros de RSA
-p = 14283786158310511321  
-q = 17345138532037777161  
+p = 32452843 
+q = 32452867 
 n = p * q 
 phi = (p - 1) * (q - 1)
 e = generar_e(phi)
