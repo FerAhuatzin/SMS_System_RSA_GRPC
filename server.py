@@ -2,6 +2,8 @@ from concurrent import futures
 import grpc
 import proto_pb2
 import proto_pb2_grpc
+from grpc_reflection.v1alpha import reflection
+
 
 class MessagingServiceServicer(proto_pb2_grpc.MessagingServiceServicer):
     def __init__(self):
@@ -43,6 +45,14 @@ class MessagingServiceServicer(proto_pb2_grpc.MessagingServiceServicer):
 def serve():
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
     proto_pb2_grpc.add_MessagingServiceServicer_to_server(MessagingServiceServicer(), server)
+    # Registrar los servicios con reflexión
+    services = (
+    proto_pb2.DESCRIPTOR.services_by_name['MessagingService'].full_name,
+    reflection.SERVICE_NAME,
+    )
+
+    reflection.enable_server_reflection(services, server)
+
     server.add_insecure_port('[::]:50051')
     print("Server is running on port 50051")
     server.start()

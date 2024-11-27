@@ -92,7 +92,7 @@ def run():
     client_id = input("Enter your client ID: ")
     role = input("Enter your role (sender/receiver): ")
 
-    with grpc.insecure_channel('localhost:50051') as channel:
+    with grpc.insecure_channel('192.168.100.160:50051') as channel:
         stub = proto_pb2_grpc.MessagingServiceStub(channel)
 
         # Registrar la llave pública
